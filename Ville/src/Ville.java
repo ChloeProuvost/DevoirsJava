@@ -3,14 +3,14 @@
 //************************************************
 public class Ville implements Comparable <Ville> {
 	
-			/* Initialisation des variables d'instance */ 
+			/** Initialisation des variables d'instance **/ 
 			
 	private String nom;
 	private boolean typeUniv;
 	private String pays;
 	private int nb_habitants; 
 	
-			/* Constructeur de la classe Ville */
+			/** Constructeur de la classe Ville **/
 	public Ville (String unNom, boolean uneUniversitee, String unPays, int nbHabitant )
 	{
 		nom = unNom;
@@ -19,19 +19,19 @@ public class Ville implements Comparable <Ville> {
 		nb_habitants = nbHabitant;
 	}
 	
-			/*Mutateur pour le nombre d'habitants*/
+			/** Mutateur pour le nombre d'habitants **/
 	public void setNb_habitant(int nv_nbHabitant)
 	{
 		nb_habitants = nv_nbHabitant;
 	}
 
-			/*Accesseur au statut universitaire*/
+			/** Accesseur au statut universitaire **/
 	public boolean StatutUniv()
 	{
 		return typeUniv;
 	}
 	
-			/*Redefinition de la methode compareTo*/
+			/** Redefinition de la methode compareTo **/
 	
 	@Override public int compareTo(Ville v){
 		return this.nb_habitants-v.nb_habitants;	
@@ -50,7 +50,7 @@ public class Ville implements Comparable <Ville> {
 		return null;
 	}
 	
-			/*Redefinition de la methode equals*/
+			/** Redefinition de la methode equals **/
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -77,7 +77,7 @@ public class Ville implements Comparable <Ville> {
 		return true;
 	}
 
-			/*Methode toString*/
+			/** Methode toString **/
 	
 	public String toString()
 	{
