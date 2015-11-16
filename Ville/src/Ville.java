@@ -1,15 +1,16 @@
 //************************************************
-//* Classe Ville 		Auteur : Chloé PROUVOST
+//* Classe Ville 		Auteur : Chloe PROUVOST
 //************************************************
 public class Ville implements Comparable <Ville> {
 	
-			// Initialisation des variables d'instance
+			/* Initialisation des variables d'instance */ 
+			
 	private String nom;
 	private boolean typeUniv;
 	private String pays;
 	private int nb_habitants; 
 	
-			// Constructeur de la classe Ville
+			/* Constructeur de la classe Ville */
 	public Ville (String unNom, boolean uneUniversitee, String unPays, int nbHabitant )
 	{
 		nom = unNom;
@@ -18,19 +19,19 @@ public class Ville implements Comparable <Ville> {
 		nb_habitants = nbHabitant;
 	}
 	
-			// Mutateur pour le nombre d'habitants
+			/*Mutateur pour le nombre d'habitants*/
 	public void setNb_habitant(int nv_nbHabitant)
 	{
 		nb_habitants = nv_nbHabitant;
 	}
 
-			//Accesseur au statut universitaire
+			/*Accesseur au statut universitaire*/
 	public boolean StatutUniv()
 	{
 		return typeUniv;
 	}
 	
-			//Redéfinition de la méthode compareTo
+			/*Redefinition de la methode compareTo*/
 	
 	@Override public int compareTo(Ville v){
 		return this.nb_habitants-v.nb_habitants;	
@@ -45,49 +46,51 @@ public class Ville implements Comparable <Ville> {
 		}
 		if (this.compareTo(v) > 0){
 			return "il y a plus d'habitants";
-		} else {
-			return "";
-		}
+		} 
+		return null;
 	}
 	
-			//Redéfinition de la méthode equals
-	@Override public boolean equals(Object obj) {
-		if (this == obj){
+			/*Redefinition de la methode equals*/
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		}
-		if (obj == null){
+		if (obj == null)
 			return false;
-		}
-		if (getClass() != obj.getClass()){
+		if (getClass() != obj.getClass())
 			return false;
-		}
-		Ville other = (Ville)obj;
-		if (nom != other.nom){
+		Ville other = (Ville) obj;
+		if (nb_habitants != other.nb_habitants)
 			return false;
-		}
-		if (typeUniv != other.typeUniv){
+		if (nom == null) {
+			if (other.nom != null)
+				return false;
+		} else if (!nom.equals(other.nom))
 			return false;
-		}
-		if (pays != other.pays){
+		if (pays == null) {
+			if (other.pays != null)
+				return false;
+		} else if (!pays.equals(other.pays))
 			return false;
-		}
-		if (nb_habitants != other.nb_habitants){
+		if (typeUniv != other.typeUniv)
 			return false;
-		}
 		return true;
-		
 	}
+
+			/*Methode toString*/
 	
-			//Méthode toString
 	public String toString()
 	{
+		String desc = "le nom de la ville1 est " + nom + ", il y a " + nb_habitants + " habitants et elle se trouve en : " 
+							+ pays;
 		if (this.StatutUniv()){
-			return "le nom de la ville1 est " + nom + ", il y a " + nb_habitants + " habitants et elle se trouve en : " 
-					+ pays + ". C'est une ville universitaire";}
+			return desc + ". C'est une ville universitaire";}
 		else {
-			return "le nom de la ville1 est " + nom + ", il y a " + nb_habitants + " habitants et elle se trouve en : " 
-					+ pays + ". Ce n'est pas une ville universitaire";
+			return desc + ". Ce n'est pas une ville universitaire";
 		}
 	}
+
+
+	
 	
 }
