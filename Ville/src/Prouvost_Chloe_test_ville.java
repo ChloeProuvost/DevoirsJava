@@ -13,6 +13,8 @@ public class Prouvost_Chloe_test_ville {
 		String Pays = new String();
 		int Hab;
 		
+		//Declaration du menu
+		
 		System.out.println("Que voulez vous faire?");
 		System.out.println("1 : Créer une ville");
 		System.out.println("2 : Accéder aux informations d'une ville");
@@ -25,9 +27,11 @@ public class Prouvost_Chloe_test_ville {
 		
 		menu = scan.nextInt();
 		
+		//On boucle tant que l'on ne veut pas quitter le menu
 		while (menu < 7)
 		{
 		
+				//Création d'une ville
 			if (menu == 1)
 			{
 				System.out.println("Vous voulez créer une nouvelle ville. Rentrez le nom de votre ville : ");
@@ -50,10 +54,10 @@ public class Prouvost_Chloe_test_ville {
 				Hab = scan.nextInt();
 				
 				Ville ville = new Ville(Nom,Univ,Pays,Hab);
-				System.out.println(ville);
 				villes.add(ville);	
 			}
 			
+				//Accès aux informations d'une ville.
 			if (menu == 2)
 			{
 				if(villes.size() == 0)
@@ -73,6 +77,7 @@ public class Prouvost_Chloe_test_ville {
 				}
 			}
 				
+				//Comparation de deux villes.
 			if (menu == 3)
 			{
 				if(villes.size() == 0 || villes.size() == 1)
@@ -97,7 +102,7 @@ public class Prouvost_Chloe_test_ville {
 				}
 			}
 			
-			
+				//Accès au statut universitaire d'une ville.
 			if (menu == 4)
 			{
 				if (villes.size() == 0)
@@ -122,7 +127,7 @@ public class Prouvost_Chloe_test_ville {
 				}
 			}
 			
-			
+				//Test pour muter le nombre d'habitant d'une ville.
 			if (menu == 5)
 			{
 				if(villes.size() == 0)
@@ -147,6 +152,7 @@ public class Prouvost_Chloe_test_ville {
 				}
 			}
 			
+				//Verification de la fonction equals.
 			if (menu == 6)
 			{
 				if(villes.size() == 0 || villes.size() == 1)
