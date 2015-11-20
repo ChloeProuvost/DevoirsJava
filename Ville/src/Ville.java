@@ -10,7 +10,13 @@ public class Ville implements Comparable <Ville> {
 	private String pays;
 	private int nb_habitants; 
 	
-			/** Constructeur de la classe Ville **/
+			/** 
+			 * Constructeur de la classe Ville 
+			 * @param unNom
+			 * @param uneUniversitee
+			 * @param unPays
+			 * @param nbHabitant
+			 */
 	public Ville (String unNom, boolean uneUniversitee, String unPays, int nbHabitant )
 	{
 		nom = unNom;
@@ -19,19 +25,25 @@ public class Ville implements Comparable <Ville> {
 		nb_habitants = nbHabitant;
 	}
 	
-			/** Mutateur pour le nombre d'habitants **/
+	public String nomVille()
+	{
+		return nom;
+	}
+	
+	
+			/** Mutateur pour le nombre d'habitants */
 	public void setNb_habitant(int nv_nbHabitant)
 	{
 		nb_habitants = nv_nbHabitant;
 	}
 
-			/** Accesseur au statut universitaire **/
+			/** Accesseur au statut universitaire */
 	public boolean StatutUniv()
 	{
 		return typeUniv;
 	}
 	
-			/** Redefinition de la methode compareTo **/
+			/** Redefinition de la methode compareTo */
 	
 	@Override public int compareTo(Ville v){
 		return this.nb_habitants-v.nb_habitants;	
@@ -50,7 +62,7 @@ public class Ville implements Comparable <Ville> {
 		return null;
 	}
 	
-			/** Redefinition de la methode equals **/
+			/** Redefinition de la methode equals */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -77,11 +89,11 @@ public class Ville implements Comparable <Ville> {
 		return true;
 	}
 
-			/** Methode toString **/
+			/** Methode toString */
 	
 	public String toString()
 	{
-		String desc = "le nom de la ville1 est " + nom + ", il y a " + nb_habitants + " habitants et elle se trouve en : " 
+		String desc = "le nom de la ville est " + nom + ", il y a " + nb_habitants + " habitants et elle se trouve en " 
 							+ pays;
 		if (this.StatutUniv()){
 			return desc + ". C'est une ville universitaire";}
