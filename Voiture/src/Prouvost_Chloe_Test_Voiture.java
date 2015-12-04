@@ -12,64 +12,55 @@ public class Prouvost_Chloe_Test_Voiture {
 		int anneeConstruction;
 		String color;
 		
-		int cmpt=0;	
+		//int cmpt=0;	
 		
-		System.out.println("Que voulez vous faire?");
-		System.out.println("1 : Créer une voiture");
-		System.out.println("2 : Afficher le nombre de voitures créées");
-		System.out.println("3 : Comparer les deux premières voitures du tableau");
-		System.out.println("4 : Enlever une voiture du tableau");
-		System.out.println("5 : Afficher les voitures contenues dans le tableau");
-		System.out.println("6 : Quitter");
-		System.out.println("Entrez votre choix");
-		
-		menu = scan.nextInt();
-		
-		while (menu != 6)
+		do 
 		{
+			System.out.println("Que voulez vous faire?");
+			System.out.println("1 : Créer une voiture");
+			System.out.println("2 : Afficher le nombre de voitures créées");
+			System.out.println("3 : Comparer les deux premières voitures du tableau");
+			System.out.println("4 : Enlever une voiture du tableau");
+			System.out.println("5 : Afficher les voitures contenues dans le tableau");
+			System.out.println("6 : Quitter");
+			System.out.println("Entrez votre choix");
+			
+			menu = scan.nextInt();
+	
 			if (menu == 1)
 			{
-				cmpt += 1;
+				//cmpt += 1;
 				System.out.println("Vous voulez créer une nouvelle voiture. Quelle est la marque?");
 				marqueVoiture = scan.next();
 				System.out.println("Quelle est l'année de construction?");
 				anneeConstruction = scan.nextInt();
-				System.out.println("Quelle est la couleur de la voiture?");
+				boolean res;
 				
-				for (int i=0; i < 6; i++)
+				do
 				{
-					System.out.println(Couleur.values()[i]);
-				}
-				color = scan.next();
-				
-				
-				boolean res = false;
-				for (int i=0; i < 6; i++)
-				{
-					res = res || color.equals(String.valueOf(Couleur.values()[i]));
+					res = false;
 					
-				}
+					System.out.println("Quelle est la couleur de la voiture?");
 				
-				if (res)
-				{
-					//Création de la voiture avec le premier constructeur (avec paramètre)
-					//--------------------------------------------------------------------
+					for (Couleur c : Couleur.values())
+					{
+						System.out.println(c);
+					}
+					
+					color = scan.next();
+					
+
+					for (int i = 0; i < Couleur.values().length; i++)
+					{
+						res = res || color.equals(String.valueOf(Couleur.values()[i]));
+					}
+				} while (!res);
+				
+				Voiture voiture1 = new Voiture(marqueVoiture, anneeConstruction, color);
+
+				tabVoiture[Voiture.nbObjCréés()-1] = voiture1;
 						
-					Voiture voiture1 = new Voiture(marqueVoiture, anneeConstruction, color);
-					
-					
-					//Création de la voiture avec le deuxième constructeur (sans paramètre)
-					//---------------------------------------------------------------------
-					
-					Voiture voiture2 = new Voiture(marqueVoiture, anneeConstruction, color, cmpt);
-					
-					
-					tabVoiture[Voiture.nbObjCréés()-1] = voiture1;
-					
-					
-				} else {
-					System.out.println("Vous n'avez pas rentrez la bonne couleur. On refait : ");
-				}	
+				
 			}
 			
 			if (menu == 2)
@@ -85,19 +76,24 @@ public class Prouvost_Chloe_Test_Voiture {
 			
 			if (menu == 4)
 			{
-				System.out.println("Quelle voiture voulez vous supprimer?");
 				int sup;
-				for (int i=0; i < Voiture.nbObjCréés(); i++)
+				do
 				{
-					System.out.println((i+1)+ " : " + tabVoiture[i].GetMarque());
+					System.out.println("Quelle voiture voulez vous supprimer?");
+					
+					for (int i=0; i < Voiture.nbObjCréés(); i++)
+					{
+						System.out.println((i+1)+ " : " + tabVoiture[i].GetMarque());
+					}
+					sup = scan.nextInt();
 				}
-				sup = scan.nextInt();
-				tabVoiture[sup-1]=null;
-				for (int i=sup-1; i < Voiture.nbObjCréés(); i++)
-				{
-					tabVoiture[i]=tabVoiture[i+1];
-				}
-				Voiture.supObj();
+				while (sup > Voiture.nbObjCréés());
+				
+					for (int i=sup-1; i < Voiture.nbObjCréés(); i++)
+					{
+						tabVoiture[i]=tabVoiture[i+1];
+					}
+					Voiture.supObj();
 				
 			}
 			
@@ -113,22 +109,9 @@ public class Prouvost_Chloe_Test_Voiture {
 			{
 				System.out.println("Nous ne pouvons pas traiter votre demande. On refait : ");
 			}
-			
 			System.out.println();
-			System.out.println("Que voulez vous faire?");
-			System.out.println("1 : Créer une voiture");
-			System.out.println("2 : Afficher le nombre de voitures créées");
-			System.out.println("3 : Comparer les deux premieres voitures du tableau");
-			System.out.println("4 : Enlever une voiture du tableau");
-			System.out.println("5 : Afficher les voitures contenues dans le tableau");
-			System.out.println("6 : Quitter");
-			System.out.println("Entrez votre choix");
-			
-			menu = scan.nextInt();
-			
-		}
+		} while (menu != 6);
 		
-
 	}
 
 }

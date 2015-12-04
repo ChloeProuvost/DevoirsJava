@@ -11,22 +11,19 @@ public class Voiture implements Comparable <Voiture>
 
 	
 	
-	public Voiture (String Mrq, int annee, String color, int cmpt)
+	public Voiture (String Mrq, int annee, String color)
 	{
+		this();
 		Marque = Mrq;
 		Annee = annee;
 		couleur_voiture = Couleur.valueOf(color);
-		compteur = cmpt;
 		
 	}
 	
-	public Voiture (String Mrq, int annee, String color)
+	public Voiture()
 	{
-		Marque = Mrq;
-		Annee = annee;
-		couleur_voiture = Couleur.valueOf(color);
-		compteur +=1; 
-		
+		super();
+		compteur++;
 	}
 	
 	public int GetAnnee()
