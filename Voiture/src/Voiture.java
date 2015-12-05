@@ -1,8 +1,17 @@
+/********************************************************
+ *  Devoir : 4			Auteur : PROUVOST Chloé         *
+ * 	A rendre le 7/12/15                                 *
+ *  Classe Voiture                                      *
+ ********************************************************/
+
 enum Couleur {Bleue, Rouge, Verte, Noire, Grise, Violette}
 
 
 public class Voiture implements Comparable <Voiture>
 {
+	/*
+	 * Declaration des variables d'instances
+	 */
 	
 	private String Marque;
 	private int Annee;
@@ -10,6 +19,9 @@ public class Voiture implements Comparable <Voiture>
 	private static int compteur=0;
 
 	
+	/*
+	 * Constructeurs qui implementent la variable statique;
+	 */
 	
 	public Voiture (String Mrq, int annee, String color)
 	{
@@ -26,26 +38,41 @@ public class Voiture implements Comparable <Voiture>
 		compteur++;
 	}
 	
-	public int GetAnnee()
-	{
-		return Annee;
-	}
+	
+	/*
+	 * Methode pour acceder a la marque de la voiture 
+	 */
 	
 	public String GetMarque()
 	{
 		return Marque;
 	}
 	
+	
+	/*
+	 * Methode statique qui retourne le nombre d'objet créés
+	 */
+	
 	public static int nbObjCréés()
 	{
 		return compteur;
 	}
+	
+	
+	/*
+	 * Methode statique qui décrémente le compteur lorsque l'on supprime un objet
+	 */
 	
 	public static int supObj()
 	{
 		compteur -= 1;
 		return compteur;
 	}
+	
+	
+	/*
+	 * Methode compareTo
+	 */
 	
 	@Override
 	public int compareTo(Voiture o)
@@ -66,17 +93,15 @@ public class Voiture implements Comparable <Voiture>
 		return null;
 	}
 	
+	
+	/*
+	 * Methode toString
+	 */
+	
 	public String toString()
 	{
 		return "La voiture est une " + Marque + ", elle a été construite en " + Annee + " et elle est " + 
 					couleur_voiture;
 	}
-	
-		
-
-	
-	
-	
-	
 }
 
